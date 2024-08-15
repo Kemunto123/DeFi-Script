@@ -62,3 +62,35 @@ The diagram below illustrates the complete flow of interactions between the user
 1. Clone the project repository:
    ```bash
    git clone https://github.com/yourusername/defi-script.git
+
+
+
+
+# Code Explanation
+
+This document provides a detailed breakdown of the key functions and logic within the script, focusing on the interactions with Uniswap and Aave, and explaining how the entire workflow is handled.
+
+## Overview
+
+The script facilitates two primary interactions:
+1. **Token Swap on Uniswap**: Swaps USDC for LINK using Uniswap V3.
+2. **Deposit into Aave**: Deposits the acquired LINK into Aave’s Lending Pool to earn interest.
+
+The code is written using **Ethers.js** to interact with Ethereum smart contracts and requires connection to the **Ethereum Sepolia Testnet** via **Infura**.
+
+---
+
+## Code Breakdown
+
+### 1. **Importing Dependencies**
+At the beginning of the script, we import necessary libraries, ABIs, and environment variables:
+```js
+const { ethers } = require("ethers");
+require("dotenv").config();
+const USDC_ABI = require("./abis/USDC.json");
+const LINK_ABI = require("./abis/LINK.json");
+const UNISWAP_ROUTER_ABI = require("./abis/UniswapV3Router.json");
+const AAVE_LENDING_POOL_ABI = require("./abis/AaveLendingPool.json");
+
+
+
